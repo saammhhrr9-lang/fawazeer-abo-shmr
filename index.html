@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>فوازير أبو شمر</title>
+<title>فوازير أبو شمر – فريقين</title>
 
 <style>
     body {
@@ -23,14 +23,9 @@
         background: white;
         padding: 25px;
         border-radius: 15px;
-        width: 420px;
+        width: 450px;
         margin: auto;
         box-shadow: 0 0 15px #bbb;
-        transition: 0.3s;
-    }
-
-    .box:hover {
-        transform: scale(1.03);
     }
 
     button {
@@ -50,51 +45,64 @@
         transform: scale(1.05);
     }
 
-    #riddle {
+    #riddle, #answer {
         margin-top: 20px;
         font-size: 20px;
         color: #333;
         min-height: 40px;
+    }
+
+    #answer {
+        color: #008000;
+        font-weight: bold;
+    }
+
+    .teams {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 25px;
+    }
+
+    .team {
+        background: #ffffff;
+        padding: 15px;
+        border-radius: 10px;
+        width: 40%;
+        box-shadow: 0 0 10px #ccc;
+    }
+
+    .score {
+        font-size: 28px;
+        color: #007fff;
+        margin-bottom: 10px;
     }
 </style>
 </head>
 
 <body>
 
-<h1>فوازير أبو شمر</h1>
+<h1>فوازير أبو شمر – فريقين</h1>
 
 <div class="box">
-    <p>اضغط على الزر لعرض فزورة جديدة</p>
     <button onclick="playSound(); showRiddle()">اعرض فزورة</button>
+    <button onclick="showAnswer()">إظهار الإجابة</button>
+
     <p id="riddle"></p>
+    <p id="answer"></p>
+</div>
+
+<div class="teams">
+    <div class="team">
+        <h2>فريق A</h2>
+        <div class="score" id="scoreA">0</div>
+        <button onclick="addPoint('A')">+ نقطة</button>
+    </div>
+
+    <div class="team">
+        <h2>فريق B</h2>
+        <div class="score" id="scoreB">0</div>
+        <button onclick="addPoint('B')">+ نقطة</button>
+    </div>
 </div>
 
 <audio id="clickSound">
-    <source src="https://www.soundjay.com/buttons/sounds/button-16.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-    const riddles = [
-        "شي يمشي بدون رجلين… من هو؟",
-        "شي إذا أكل كبر وإذا شرب صغر… ما هو؟",
-        "شي له أسنان وما يعض… ما هو؟",
-        "شي تسمعه ولا تشوفه… ما هو؟",
-        "شي إذا قربته منك عماك… ما هو؟",
-        "شي كل ما أخذت منه كبر… ما هو؟",
-        "باب لا يمكن فتحه… ما هو؟",
-        "شي يطير بلا جناح… ما هو؟",
-        "شي يدخل الماء ولا يبتل… ما هو؟"
-    ];
-
-    function showRiddle() {
-        const random = Math.floor(Math.random() * riddles.length);
-        document.getElementById("riddle").innerText = riddles[random];
-    }
-
-    function playSound() {
-        document.getElementById("clickSound").play();
-    }
-</script>
-
-</body>
-</html>
