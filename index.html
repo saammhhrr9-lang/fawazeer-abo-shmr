@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>فوازير أبو شمر</title>
+
+<style>
+    body {
+        font-family: "Tahoma", sans-serif;
+        background: linear-gradient(#d0fef3, #ffffff);
+        text-align: center;
+        padding: 40px;
+    }
+
+    h1 {
+        margin-bottom: 25px;
+        color: #007fff;
+        font-size: 32px;
+        text-shadow: 0 0 5px #aaa;
+    }
+
+    .box {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        width: 420px;
+        margin: auto;
+        box-shadow: 0 0 15px #bbb;
+        transition: 0.3s;
+    }
+
+    .box:hover {
+        transform: scale(1.03);
+    }
+
+    button {
+        padding: 12px 20px;
+        margin: 10px;
+        border: none;
+        background: #007fff;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        background: #005fcc;
+        transform: scale(1.05);
+    }
+
+    #riddle {
+        margin-top: 20px;
+        font-size: 20px;
+        color: #333;
+        min-height: 40px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>فوازير أبو شمر</h1>
+
+<div class="box">
+    <p>اضغط على الزر لعرض فزورة جديدة</p>
+    <button onclick="playSound(); showRiddle()">اعرض فزورة</button>
+    <p id="riddle"></p>
+</div>
+
+<audio id="clickSound">
+    <source src="https://www.soundjay.com/buttons/sounds/button-16.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const riddles = [
+        "شي يمشي بدون رجلين… من هو؟",
+        "شي إذا أكل كبر وإذا شرب صغر… ما هو؟",
+        "شي له أسنان وما يعض… ما هو؟",
+        "شي تسمعه ولا تشوفه… ما هو؟",
+        "شي إذا قربته منك عماك… ما هو؟",
+        "شي كل ما أخذت منه كبر… ما هو؟",
+        "باب لا يمكن فتحه… ما هو؟",
+        "شي يطير بلا جناح… ما هو؟",
+        "شي يدخل الماء ولا يبتل… ما هو؟"
+    ];
+
+    function showRiddle() {
+        const random = Math.floor(Math.random() * riddles.length);
+        document.getElementById("riddle").innerText = riddles[random];
+    }
+
+    function playSound() {
+        document.getElementById("clickSound").play();
+    }
+</script>
+
+</body>
+</html>
